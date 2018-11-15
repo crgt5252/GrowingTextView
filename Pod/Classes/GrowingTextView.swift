@@ -33,7 +33,7 @@ open class GrowingTextView: UITextView {
     @IBInspectable open var maxHeight: CGFloat = 0 {
         didSet { forceLayoutSubviews() }
     }
-    @IBInspectable open var placeholder: String? {
+    @IBInspectable open var placeholderGrowing: String? {
         didSet { setNeedsDisplay() }
     }
     @IBInspectable open var placeholderColor: UIColor = UIColor(white: 0.8, alpha: 1.0) {
@@ -149,7 +149,7 @@ open class GrowingTextView: UITextView {
             if let attributedPlaceholder = attributedPlaceholder {
                 // Prefer to use attributedPlaceholder
                 attributedPlaceholder.draw(in: placeholderRect)
-            } else if let placeholder = placeholder {
+            } else if let placeholder = placeholderGrowing {
                 // Otherwise user placeholder and inherit `text` attributes
                 let paragraphStyle = NSMutableParagraphStyle()
                 paragraphStyle.alignment = textAlignment
